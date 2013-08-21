@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+version = '0.1'
+
+task(runBenchmark, dependsOn: 'classes', type: JavaExec) {
+    main = 'net.kaoriya.qb.qdigest_benchmark.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+defaultTasks 'runBenchmark'
+
+// vim:set ts=8 sts=4 sw=4 tw=0 et ft=groovy:
