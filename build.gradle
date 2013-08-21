@@ -9,6 +9,7 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile group: 'redis.clients', name: 'jedis', version: '2.+'
+    compile group: 'it.unimi.dsi', name: 'fastutil', version: '6.5.7'
 }
 
 task(runBenchmark, dependsOn: 'classes', type: JavaExec) {
