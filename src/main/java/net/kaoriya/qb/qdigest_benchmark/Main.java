@@ -40,9 +40,15 @@ public class Main
         queryQuantiles(qd, 0, 1000);
     }
 
-    public static void benchJedis(Jedis jedis) throws Exception
+    public static void benchmarkDummyQDigest()
     {
-        // TODO:
+        System.out.println("benchmark(dummy)");
+        DummyQDigestFactory factory = new DummyQDigestFactory();
+        try {
+            benchCommons(factory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void benchmarkRedisQDigest(String host)
@@ -74,11 +80,26 @@ public class Main
         }
     }
 
+    public static void benchmarkMetricsHistogram()
+    {
+        System.out.println("benchmark(metrics.histogram)");
+        MetricsHistogramFactory factory = new MetricsHistogramFactory();
+        try {
+            benchCommons(factory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void executeBenchmark(String host) {
+        System.out.println("");
+        benchmarkDummyQDigest();
         System.out.println("");
         benchmarkRedisQDigest(host);
         System.out.println("");
         benchmarkStreamQDigest();
+        System.out.println("");
+        benchmarkMetricsHistogram();
     }
 
     public static void main(String[] args) {
