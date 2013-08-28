@@ -82,7 +82,7 @@ public class Main
 
     public static void benchmarkMetricsHistogram()
     {
-        System.out.println("benchmark(metrics.histogram)");
+        System.out.println("benchmark(metrics.histogram + UniformReservoir)");
         MetricsHistogramFactory factory = new MetricsHistogramFactory();
         try {
             benchCommons(factory);

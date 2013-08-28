@@ -9,11 +9,19 @@ $ gradle
 ## Sample results
 
 ```
+benchmark(dummy)
+[    0.000262s] insert values: count=1000
+[    0.000202s] query quantiles: count=1000
+
 benchmark(redis-qdigest)
-[    1.102372s] insert values: count=1000
-[    1.558261s] query quantiles: count=1000
+[    1.207074s] insert values: count=1000
+[    1.752679s] query quantiles: count=1000
 
 benchmark(stream-lib)
-[    0.020230s] insert values: count=1000
-[    0.089429s] query quantiles: count=1000
+[    0.020968s] insert values: count=1000
+[    0.095544s] query quantiles: count=1000
+
+benchmark(metrics.histogram + UniformReservoir)
+[    0.001205s] insert values: count=1000
+[    0.082279s] query quantiles: count=1000
 ```
