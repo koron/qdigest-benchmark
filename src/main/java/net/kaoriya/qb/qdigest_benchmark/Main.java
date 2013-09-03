@@ -91,6 +91,17 @@ public class Main
         }
     }
 
+    public static void benchmarkSlottedHistogram()
+    {
+        System.out.println("benchmark(slotted-histogram)");
+        SlottedHistogramFactory factory = new SlottedHistogramFactory();
+        try {
+            benchCommons(factory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void executeBenchmark(String host) {
         System.out.println("");
         benchmarkDummyQDigest();
@@ -100,6 +111,8 @@ public class Main
         benchmarkStreamQDigest();
         System.out.println("");
         benchmarkMetricsHistogram();
+        System.out.println("");
+        benchmarkSlottedHistogram();
     }
 
     public static void main(String[] args) {
