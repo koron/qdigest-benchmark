@@ -74,11 +74,24 @@ public class Main
         }
     }
 
+    public static void benchmarkSlottedHistogram()
+    {
+        System.out.println("benchmark(slotted-histogram)");
+        SlottedHistogramFactory factory = new SlottedHistogramFactory();
+        try {
+            benchCommons(factory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void executeBenchmark(String host) {
         System.out.println("");
         benchmarkRedisQDigest(host);
         System.out.println("");
         benchmarkStreamQDigest();
+        System.out.println("");
+        benchmarkSlottedHistogram();
     }
 
     public static void main(String[] args) {

@@ -10,10 +10,14 @@ $ gradle
 
 ```
 benchmark(redis-qdigest)
-[    1.102372s] insert values: count=1000
-[    1.558261s] query quantiles: count=1000
+[    1.104219s] insert values: count=1000
+[    1.585729s] query quantiles: count=1000
 
 benchmark(stream-lib)
-[    0.020230s] insert values: count=1000
-[    0.089429s] query quantiles: count=1000
+[    0.025594s] insert values: count=1000
+[    0.091520s] query quantiles: count=1000
+
+benchmark(slotted-histogram)
+[    0.000532s] insert values: count=1000
+[    0.000279s] query quantiles: count=1000
 ```
